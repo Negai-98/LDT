@@ -1,6 +1,6 @@
 # Latent Diffusion Transformer for Point Cloud Generation
 
-This repository contains a PyTorch implementation of the paper:
+This repository contains a PyTorch implementation of the paper: Latent Diffusion Transformer for Point Cloud Generation
 
 ## Introduction
 Diffusion models have been successfully applied to point cloud generation tasks recently. The main notion is using a forward process to progressively add noises into point clouds and then use a reverse process to generate point clouds by denoising these noises. We propose a latent diffusion model based on Transformers for point cloud generation. Instead of directly building a diffusion process based on the original points, we first propose a latent compressor to convert original point clouds into a set of latent tokens before feeding them into diffusion models. Converting point clouds as latent tokens not only improves expressiveness but also exhibits better flexibility since they can adapt to various downstream tasks. We carefully design the latent compressor based on an attention-based auto-encoder architecture to capture global structures in point clouds. Then, we propose to use Transformers as the backbones of the latent diffusion module to maintain global structures. The powerful feature extraction ability of Transformers guarantees the high quality and smoothness of generated point clouds. Experiments show that our method achieves superior performance in both unconditional generation on ShapeNet and multi-modal point cloud completion on ShapeNet-ViPC.
