@@ -14,12 +14,19 @@ conda activate LDT
 Please Download the "extern" and place this folder in the root directory: [link](https://drive.google.com/drive/folders/1FRRKDBFNQTW_HdDglNro4ufJVPsD8zcz?usp=drive_link)
 
 ### Compile the evaluation metrics and pointnet2 lib
+
 cd evaluation/pytorch_structural_losses/
+
 python setup.py install
+
 cd extern/pointnet2_ops_lib
+
 python setup.py install
+
 cd extern/emd
+
 python setup.py install
+
 ## Dataset
 
 Please follow the instruction from PointFlow to set-up the dataset ShapeNetCore.v2.PC15k for generation: [link](https://github.com/stevenygd/PointFlow). And place ShapeNetCore.v2.PC15k in data/
