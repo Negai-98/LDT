@@ -1,0 +1,115 @@
+data:
+  type: datasets.pointflow_datasets
+  dataset_type: shapenet15k
+  num_workers: 4
+  cates: ['airplane']
+  num_categorys: 1
+  tr_max_sample_points: 2048
+  te_max_sample_points: 2048
+  data_dir: data/ShapeNetCore.v2.PC15k
+  batch_size: 8
+  test_batch_size: 8
+  boundary: True
+
+opt:
+  pretrain_path: # enter your pretrain file path
+  adj_lr: "warm_up"
+  warmup_iters: 1000
+  lr: 0.0001
+  grad_norm_clip_value: 1.0
+  ema_decay: 0.9999
+  beta1: 0.9
+  beta2: 0.999
+  compressor_beta1: 0.9
+  compressor_beta2: 0.999
+  loss_type: l2
+  weight_decay: 0.
+  compressor_warmup: 0
+  discrete: False
+  alpha: 0.1
+
+
+log:
+  save_epoch_freq: 100
+  save_path: experiments/Hybrid_Trainer/airplane
+  traincolumns: [ "epoch","itr","loss_score","kl","rec","time" ]
+  trainformat: [ ~, ~, "{:.4f}", "{:.4f}", "{:.4f}", "{:.0f}" ]
+  evalcolumns: [ "epoch", "mmd-CD","cov-CD","mmd_smp-CD","mmd-EMD","cov-EMD","mmd_smp-EMD","1-NN-CD-acc_t","1-NN-CD-acc_f","1-NN-CD-acc","1-NN-EMD-acc_t","1-NN-EMD-acc_f","1-NN-EMD-acc" ]
+  evalformat: [ ~,"{:.8f}", "{:.8f}", "{:.8f}","{:.8f}", "{:.8f}", "{:.8f}", "{:.6f}","{:.6f}","{:.6f}","{:.6f}","{:.6f}","{:.6f}" ]
+  log_epoch_freq: 10
+  eval_epoch_freq: 100
+
+
+common:
+  epochs: 2000
+  num_points: 2048
+  seed: 0
+  model_path: model.scorenet.score
+
+score:
+  num_steps: 1000
+  z_dim: 120
+  z_scale: 32
+  hidden_size: 128
+  num_heads: 16
+  num_blocks: 24
+  num_categorys: 1
+  c_dim: 0.
+  t_dim: 128
+  dropout: 0.
+  norm: layer_norm
+  learn_sigma: False
+  act: swish
+  unet: False
+  AdaLN: True
+  condition: False
+
+compressor:
+  outsize: 2048
+  max_outputs: 2048
+  input_dim: 3
+  z_dim: 20
+  z_scales: 32
+  p_dim: 256
+  n_layers: 6
+  hidden_dim: 128
+  num_heads: 4
+  activation: swish
+  encoder_dropout_p: 0.
+  decoder_dropout_p: 0.
+  norm: layer_norm
+  neighbors: 128
+  encoder_layers: 2
+  mlp_ratio: 4.0
+  min_sigma: -30
+  cluster_norm: anchor
+  norm_input: False
+  pre_group: False
+  decoder_act: ~
+  ActNorm: True
+  AdaLN: True
+  pos_embedding: center
+  class_condition: False
+
+sde:
+  beta_start: 0.1
+  beta_end: 20
+  sde_type: "vpsde"
+  sigma2_0: 0
+  iw_sample_p_mode: drop_all_iw
+  iw_sample_q_mode: ll_iw
+  time_eps: 0.01
+  ode_tol: 0.00001
+  sample_time_eps: 0.000001
+  sample_mode: discrete
+  predictor: ancestral
+  # reversediffusion ancestral eulermaruyama ddim pndm
+  corrector: ~
+  # langevin ancestral
+  train_N: 1000
+  sample_N: 1000
+  snr: 0.01
+  corrector_steps: 1
+  denoise: True
+  probability_flow: False
+  alpha: 1.0

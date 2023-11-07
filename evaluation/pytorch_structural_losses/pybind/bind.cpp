@@ -1,0 +1,16 @@
+#include <string>
+
+#include <pybind11/pybind11.h>
+#include <torch/extension.h>
+
+#include "extern.hpp"
+
+namespace py = pybind11;
+
+PYBIND11_MODULE(TORCH_EXTENSION_NAME, m){
+  m.def("ApproxMatch", &ApproxMatch);
+  m.def("MatchCost", &MatchCost);
+  m.def("MatchCostGrad", &MatchCostGrad);
+  m.def("NNDistance", &NNDistance);
+  m.def("NNDistanceGrad", &NNDistanceGrad);
+}

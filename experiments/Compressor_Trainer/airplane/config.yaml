@@ -1,0 +1,66 @@
+data:
+  type: datasets.pointflow_datasets
+  dataset_type: shapenet15k
+  num_workers: 4
+  cates: ['airplane']
+  num_categorys: 1
+  tr_max_sample_points: 2048
+  te_max_sample_points: 2048
+  data_dir: data/ShapeNetCore.v2.PC15k
+  batch_size: 16
+  test_batch_size: 16
+  boundary: True
+
+opt:
+  adj_lr: "warm_up"
+  warmup_iters: 2000
+  lr: 0.001
+  beta1: 0.9
+  beta2: 0.999
+  ema_decay: 0.
+  weight_decay: 0.
+  grad_norm_clip_value: 1.
+  kl_weight: 0.000001
+
+log:
+  save_epoch_freq: 5
+  save_path: experiments/Compressor_Trainer/airplane
+  traincolumns: [ "epoch","itr","loss","kl_loss","rec_loss", "max_feature", "time"]
+  trainformat: [ ~, ~, "{:.4f}", "{:.4f}","{:.4f}", "{:.4f}","{:.0f}" ]
+  evalcolumns: [ "epoch", "mmd-CD","cov-CD","mmd_smp-CD","mmd-EMD","cov-EMD","mmd_smp-EMD","1-NN-CD-acc_t","1-NN-CD-acc_f","1-NN-CD-acc","1-NN-EMD-acc_t","1-NN-EMD-acc_f","1-NN-EMD-acc" ]
+  evalformat: [ ~,"{:.8f}", "{:.8f}", "{:.8f}","{:.8f}", "{:.8f}", "{:.8f}", "{:.6f}","{:.6f}","{:.6f}","{:.6f}","{:.6f}","{:.6f}" ]
+  log_epoch_freq: 5
+  eval_epoch_freq: 200
+
+
+common:
+  epochs: 5
+  num_points: 2048
+  seed: 2023
+
+model:
+  outsize: 2048
+  max_outputs: 2048
+  input_dim: 3
+  z_dim: 20
+  z_scales: 32
+  p_dim: 256
+  n_layers: 6
+  hidden_dim: 128
+  num_heads: 4
+  activation: swish
+  encoder_dropout_p: 0.
+  decoder_dropout_p: 0.
+  norm: layer_norm
+  neighbors: 128
+  encoder_layers: 2
+  mlp_ratio: 4.0
+  min_sigma: -30
+  cluster_norm: anchor
+  norm_input: False
+  pre_group: False
+  decoder_act: ~
+  ActNorm: True
+  AdaLN: True
+  pos_embedding: center
+  class_condition: False
