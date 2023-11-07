@@ -10,6 +10,9 @@ Diffusion models have been successfully applied to point cloud generation tasks 
 conda env create -f environment.yml
 conda activate LDT
 
+### Download the lib
+Please Download the "extern" and place this folder in the root directory: [link](https://drive.google.com/drive/folders/1FRRKDBFNQTW_HdDglNro4ufJVPsD8zcz?usp=drive_link)
+
 ### Compile the evaluation metrics and pointnet2 lib
 cd evaluation/pytorch_structural_losses/
 python setup.py install
@@ -17,17 +20,20 @@ cd extern/pointnet2_ops_lib
 python setup.py install
 cd extern/emd
 python setup.py install
-
 ## Dataset
 
-Please follow the instruction from PointFlow to set-up the dataset ShapeNetCore.v2.PC15k for generation: [link](https://github.com/stevenygd/PointFlow). Put ShapeNetCore.v2.PC15k in data/
-Please follow the instruction from ViPC to set-up the dataset ShapeNet-ViPc for completion: [link](https://github.com/Hydrogenion/ViPC). Put ShapeNetViPC-Dataset in data/
+Please follow the instruction from PointFlow to set-up the dataset ShapeNetCore.v2.PC15k for generation: [link](https://github.com/stevenygd/PointFlow). And place ShapeNetCore.v2.PC15k in data/
+
+Please Download the "ViPC" dataset split files and place this folder in the data/datasets: [link](https://drive.google.com/drive/folders/1FRRKDBFNQTW_HdDglNro4ufJVPsD8zcz?usp=drive_link)
+
+Please follow the instruction from ViPC to set-up the dataset ShapeNet-ViPc for completion: [link](https://github.com/Hydrogenion/ViPC). 
+And place ShapeNetViPC-Dataset in data/
 
 ## Samples
-
+Please Download the "result" and place this folder in the root directory: [link](https://drive.google.com/drive/folders/1FRRKDBFNQTW_HdDglNro4ufJVPsD8zcz?usp=drive_link)
 Generated samples are available in test/smp
-The commands output the CD and EMD on the these samples.
-#### Usage:
+
+### Evaluate these samples
 #### python val_sample.py --dataset<dataset_type> --sample <samples_filename>
 
 python val_sample.py --dataset airplane --smp.npy  
