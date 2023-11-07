@@ -50,7 +50,7 @@ python val_sample.py --dataset car --smp.npy
 python val_sample.py --dataset chair --smp.npy  
 
 ## Training
-Only Single GPU Training supported
+Only support Single GPU Training.
 
 We provide the best result config in experiments/...Triner/config.yaml
 #### Usage:
