@@ -1,0 +1,21 @@
+INFO:root:car:smp.npy
+INFO:root:[val/gen/lgan_mmd-CD] 0.00321285
+INFO:root:[val/gen/lgan_cov-CD] 0.48579547
+INFO:root:[val/gen/lgan_mmd_smp-CD] 0.00327264
+INFO:root:[val/gen/1-NN-CD-acc_t] 0.16761364
+INFO:root:[val/gen/1-NN-CD-acc_f] 0.90340906
+INFO:root:[val/gen/1-NN-CD-acc] 0.53551137
+INFO:root:airplane:smp.npy
+INFO:root:[val/gen/lgan_mmd-CD] 0.00080392
+INFO:root:[val/gen/lgan_cov-CD] 0.39506173
+INFO:root:[val/gen/lgan_mmd_smp-CD] 0.00337537
+INFO:root:[val/gen/1-NN-CD-acc_t] 0.25432098
+INFO:root:[val/gen/1-NN-CD-acc_f] 0.86913580
+INFO:root:[val/gen/1-NN-CD-acc] 0.56172842
+INFO:root:chair:smp.npy
+INFO:root:[val/gen/lgan_mmd-CD] 0.00701257
+INFO:root:[val/gen/lgan_cov-CD] 0.43655589
+INFO:root:[val/gen/lgan_mmd_smp-CD] 0.00586223
+INFO:root:[val/gen/1-NN-CD-acc_t] 0.39274925
+INFO:root:[val/gen/1-NN-CD-acc_f] 0.80060422
+INFO:root:[val/gen/1-NN-CD-acc] 0.59667671

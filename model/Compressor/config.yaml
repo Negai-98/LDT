@@ -1,0 +1,27 @@
+vae:
+  outsize: 2048
+  max_outputs: 2048
+  input_dim: 3
+  z_dim: 20
+  z_scales: 32
+  p_dim: 256
+  n_layers: 6
+  hidden_dim: 256
+  num_heads: 4
+  activation: swish
+  encoder_dropout_p: 0.
+  decoder_dropout_p: 0.
+  norm: layer_norm
+  neighbors: 128
+  encoder_layers: 2
+  mlp_ratio: 4.0
+  min_sigma: -30
+  cluster_norm: anchor
+  norm_input: False
+  pre_group: False
+  decoder_act: ~
+  ActNorm: True
+  AdaLN: True
+  pos_embedding: mlp
+  num_categorys: 55
+  class_condition: False

@@ -1,0 +1,10 @@
+matplotlib==3.4.2
+pyyaml
+scikit-learn
+scipy
+tqdm
+mitsuba
+pandas
+scipy
+torchdiffeq
+ninja

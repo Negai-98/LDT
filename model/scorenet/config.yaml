@@ -1,0 +1,16 @@
+score:
+  num_steps: 1000
+  z_dim: 120
+  z_scale: 32
+  hidden_size: 1024
+  num_heads: 16
+  num_blocks: 16
+  num_categorys: 1
+  c_dim: 0.
+  t_dim: 512
+  dropout: 0.
+  norm: layer_norm
+  learn_sigma: False
+  act: swish
+  unet: True
+  AdaLN: True
